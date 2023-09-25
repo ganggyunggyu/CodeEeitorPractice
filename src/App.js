@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+/** @format */
+
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import React, { useState } from 'react';
+import JavaEditor from './components/JavaEditor';
+import LeftBar from './components/LeftBar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='flex'>
+      <Routes>
+        <Route path='' element={<LeftBar />}></Route>
+        <Route path={`/:fileId`} element={<JavaEditor />}></Route>
+      </Routes>
     </div>
   );
 }
